@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Printing Farm – Online Order</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="order.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+<!-- PAGE -->
+<div class="page">
+  <a href="3D-Services.html" class="back-link">
+    <i class="bi bi-arrow-left-short"></i>
+    Back to services
+  </a>
+  <h1 class="page-title">Online 3D Printing Order</h1>
+  <p class="page-sub"ឋ>Upload your file, configure your settings, and submit your print job.</p>
+
+  <div class="layout">
+
+    <!-- MAIN FORM -->
+    <div>
+
+      <!-- Upload -->
+      <div class="card" style="margin-bottom:16px;">
+        <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+          <input type="file" id="fileInput" style="display:none" accept=".stl,.stp,.step,.obj,.3mf">
+          <div class="upload-icon">
+            <i class="bi bi-cloud-upload-fill"></i>
+          </div>
+          <div class="upload-title">Add 3D Files</div>
+          <div class="upload-meta">
+            File types: STL, STP, STEP, OBJ, 3MF &nbsp;|&nbsp; Wall thickness &gt; 1.2mm &nbsp;|&nbsp; Thinnest part ≥ 0.8mm
+          </div>
+          <div class="upload-secure">
+            <i class="bi bi-lock-fill"></i>
+            All uploads are secure and confidential
+          </div>
+        </div>
+
+        <!-- Printer -->
+        <div class="section">
+          <div class="section-label">Selected Printer</div>
+          <div class="section-group">
+              <div class="printer-tag">
+                <i class="bi bi-printer-fill"></i>
+              </div>
+              ........
+          </div>
+        </div>
+
+        <!-- Filament Type -->
+        <div class="section">
+          <div class="section-label">Filament Type</div>
+          <div class="chip-group" id="filament">
+            <div class="chip active" data-group="filament">PLA</div>
+            <div class="chip" data-group="filament">TPU</div>
+            <div class="chip" data-group="filament">PETG</div>
+            <div class="chip" data-group="filament">ABS</div>
+            <div class="chip" data-group="filament">ASA</div>
+            <div class="chip" data-group="filament">PET</div>
+          </div>
+        </div>
+
+        <!-- Color -->
+        <div class="section">
+          <div class="section-label">Color</div>
+          <div class="chip-group" id="color">
+            <div class="chip active" data-group="color">Any</div>
+            <div class="chip" data-group="color">Black</div>
+            <div class="chip" data-group="color">White</div>
+            <div class="chip" data-group="color">Gray</div>
+            <div class="chip" data-group="color">Natural</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:16px;">
+        <!-- Infill Density -->
+        <div class="section">
+          <div class="section-label">Infill Density</div>
+          <div class="range-wrap">
+            <div class="range-labels">
+              <span style="font-size:13px;color:var(--muted);"></span>
+              <span class="range-badge" id="singleLabel">20%</span>
+            </div>
+            <div class="dual-slider">
+              <div class="slider-track"></div>
+              <div class="slider-fill" id="sliderFill"></div>
+              <input type="range" id="rangeSingle" min="5" max="100" value="20" step="=1">
+            </div>
+            <div class="range-ticks">
+              <span>5%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infill Pattern -->
+        <div class="section">
+          <div class="section-label">Infill Pattern</div>
+          <div class="pattern-grid" id="pattern">
+            <div class="pattern-chip active" data-group="pattern">Concentric</div>
+            <div class="pattern-chip" data-group="pattern">Rectilinear</div>
+            <div class="pattern-chip" data-group="pattern">Grid</div>
+            <div class="pattern-chip" data-group="pattern">Line</div>
+            <div class="pattern-chip" data-group="pattern">Cubic</div>
+            <div class="pattern-chip" data-group="pattern">Triangles</div>
+            <div class="pattern-chip" data-group="pattern">Tri-hexagon</div>
+            <div class="pattern-chip" data-group="pattern">Gyroid</div>
+            <div class="pattern-chip" data-group="pattern">Honeycomb</div>
+            <div class="pattern-chip" data-group="pattern">Adaptive Cubic</div>
+            <div class="pattern-chip" data-group="pattern">Aligned Rectilinear</div>
+            <div class="pattern-chip" data-group="pattern">3D Honeycomb</div>
+            <div class="pattern-chip" data-group="pattern">Hilbert Curve</div>
+            <div class="pattern-chip" data-group="pattern">Archimedean</div>
+            <div class="pattern-chip" data-group="pattern">Octagram Spiral</div>
+            <div class="pattern-chip" data-group="pattern">Support Cubic</div>
+            <div class="pattern-chip" data-group="pattern">Lightening</div>
+            <div class="pattern-chip" data-group="pattern">Cross</div>
+            <div class="pattern-chip" data-group="pattern">Cross 3D</div>
+            <div class="pattern-chip" data-group="pattern">Quarter Cubic</div>
+            <div class="pattern-chip" data-group="pattern">Octet</div>
+          </div>
+          <div class="selected-note">Selected: <span id="patternLabel">Concentric</span></div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="section">
+          <div class="section-label">Quantity</div>
+          <div class="qty-control">
+            <button class="qty-btn" id="qtyMinus">−</button>
+            <div class="qty-num" id="qtyNum" >1</div>
+            <button class="qty-btn" id="qtyPlus">+</button>
+          </div>
+        </div>
+
+        <!-- Remarks -->
+        <div class="section">
+          <div class="section-label">Remarks (Optional)</div>
+          <textarea class="remarks-textarea" placeholder="Leave a note if you have any special request…"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-card" style="position:sticky;top:72px;">
+      <div class="sidebar-title">Charge Details</div>
+      <div class="charge-row">
+        <span class="charge-label">Estimated price</span>
+        <span class="charge-value">From $...../hr</span>
+      </div>
+      <div class="charge-row">
+        <span class="charge-label">Shipping estimate</span>
+        <span class="charge-dash">—</span>
+      </div>
+      <hr class="divider">
+      <div class="terms-row">
+        <input type="checkbox" id="terms">
+        <label for="terms">I agree to the <a href="#">terms of use</a></label>
+      </div>
+      <button class="btn-submit">Submit Order</button>
+      <button class="btn-save">Save to Cart</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Single-select chip groups
+  document.querySelectorAll('.chip, .pattern-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const group = chip.dataset.group;
+      document.querySelectorAll(`[data-group="${group}"]`).forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      if (group === 'pattern') {
+        document.getElementById('patternLabel').textContent = chip.textContent;
+      }
+    });
+  });
+
+    // Single range slider
+  const rangeSingle = document.getElementById('rangeSingle');
+  const singleLabel = document.getElementById('singleLabel');
+  const sliderFill = document.getElementById('sliderFill');
+
+  function updateSlider() {
+    const val = parseInt(rangeSingle.value);
+    const min = parseInt(rangeSingle.min);
+    const max = parseInt(rangeSingle.max);
+    const pct = ((val - min) / (max - min)) * 100;
+    sliderFill.style.left = '0%';
+    sliderFill.style.width = pct + '%';
+    singleLabel.textContent = val + '%';
+  }
+
+  rangeSingle.addEventListener('input', updateSlider);
+  updateSlider();
+
+  // Quantity
+  let qty = 1;
+  document.getElementById('qtyMinus').addEventListener('click', () => {
+    if (qty > 1) { qty--; document.getElementById('qtyNum').textContent = qty; }
+  });
+  document.getElementById('qtyPlus').addEventListener('click', () => {
+    qty++; document.getElementById('qtyNum').textContent = qty;
+  });
+</script>
+</body>
+</html>
