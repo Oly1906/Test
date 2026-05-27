@@ -156,7 +156,9 @@ body{
   justify-content:center;
   padding:1.5rem;
   border-bottom:1px solid var(--border);
-  min-height:190px;}
+  min-height:190px;
+}
+
 .printer-img-wrap img{
   max-height:160px;
   max-width:100%;
@@ -169,9 +171,10 @@ body{
   border-bottom:1px solid var(--border);
 }
 .printer-model{
-  font-family:var(--font-head);
+  /* font-family:var(--font-head); */
   font-size:12px;
   margin-bottom:5px;
+  font-weight:500;
 }
 .printer-badge{
   font-size:11px;
